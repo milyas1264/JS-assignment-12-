@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List Manager</title>
+</head>
+<body>
+  <h2>To-Do List</h2>
+
+  <input type="text" id="task" placeholder="Enter a task">
+  <button onclick="addTask()">Add Task</button>
+  <button onclick="clearTasks()">Clear All</button>
+
+  <ul id="taskList"></ul>
+  <p id="taskCount">Total Tasks: 0</p>
+
+  <script>
+    // Tasks store karne ke liye empty array
+    let tasks = [];
+
+    // Jab user "Add Task" click kare
+    function addTask() {
+      let input = document.getElementById("task");
+      let task = input.value.trim();  // Extra spaces hataaye
+
+      if (task === "") {
+        alert("Task khaali nahi ho sakta!");
+        return; // Khaali input ko roko
+      }
+
+      tasks.push(task);  // Task ko array mein daalo
+
+      // Task list mein dikhane ke liye new <li> banayein
+      let list = document.getElementById("taskList");
+      let li = document.createElement("li");
+      li.textContent = task;
+      list.appendChild(li);
+
+      // Total task count update karein
+      document.getElementById("taskCount").textContent = "Total Tasks: " + tasks.length;
+
+      input.value = "";  // Input box ko saaf kar dein
+    }
+
+    // Jab user "Clear All" click kare
+    function clearTasks() {
+      tasks = [];  // Array khali kar dein
+      document.getElementById("taskList").innerHTML = "";  // List saaf karein

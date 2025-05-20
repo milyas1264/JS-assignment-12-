@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Marks</title>
+</head>
+<body>
+
+  <h2>Student Marks System</h2>
+
+  <input type="text" id="name" placeholder="Student Name">
+  <input type="number" id="marks" placeholder="Marks (0-100)">
+  <button onclick="addStudent()">Add</button>
+
+  <ul id="list"></ul>
+
+  <p id="summary"></p>
+
+  <script>
+//     Task Title: Student Marks Management System
+// �� Description:
+// User form se student ka naam aur marks input karega. Jab user &quot;Add Student&quot; button pe click
+// karega:
+// 1. Input values validate hongi.
+// 2. Name string array mein add hoga.
+// 3. Marks number array mein add honge.
+// 4. Neeche list show hogi jahan sab students ke naam aur marks dikhaye jayenge.
+// 5. Total students aur average marks bhi show honge.
+
+    let names = [];
+    let marks = [];
+
+    function addStudent() {
+      let name = document.getElementById("name").value.trim();
+      //trim() method dono side se space remove karega 
+      let mark = parseFloat(document.getElementById("marks").value);
+      //parseFloat() method string ko number mein convert karega
+      if (name === "" || isNaN(mark) || mark < 0 || mark > 100) {
+        //agr name Khali hai ya marks number nhe ha ya 0 se kum ha ya 100 se bada hai
+        alert("Valid name aur marks (0-100) likhen");
+        return; //agr valid nhi hai to return yeheen ruk jai
+      }
+
+      names.push(name);
+      marks.push(mark);
+
+      let list = document.getElementById("list");
+      list.innerHTML += `<li>${name} - ${mark}</li>`;
+
+      let total = marks.length;
+      let avg = marks.reduce((a, b) => a + b, 0) / total;
+      //reduce() function sab marks ko jodta hai.
+
+
+      document.getElementById("summary").innerText = `Total: ${total}, Average: ${avg.toFixed(2)}`;
+
+      document.getElementById("name").value = "";
+      document.getElementById("marks").value = "";
+    }
+  </script>
+
+</body>
+</html>
