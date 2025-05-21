@@ -2,6 +2,28 @@
 <html>
 <head>
   <title>To-Do List Manager</title>
+  <style>
+    body {
+      background-color: lightseagreen;
+      color: yellow;
+      text-align: center;
+      margin: 20px;
+    }
+    input{
+      background-color: magenta;
+      padding: 10px;
+      color: blue;
+      border-radius: 10px;
+      border: 5px groove gray;
+    }
+    button{
+      background-color: lightgreen;
+      padding: 10px;
+      color: blue;
+      border-radius: 20px ;
+      margin: 10px;
+    }
+  </style>
 </head>
 <body>
   <h2>To-Do List</h2>
@@ -20,10 +42,10 @@
     // Jab user "Add Task" click kare
     function addTask() {
       let input = document.getElementById("task");
-      let task = input.value.trim();  // Extra spaces hataaye
+      let task = input.value.trim();  // Extra spaces hataaye ga
 
       if (task === "") {
-        alert("Task khaali nahi ho sakta!");
+        alert("Task khaali nahi ho sakta! kuch na kuch likhen");
         return; // Khaali input ko roko
       }
 
@@ -45,3 +67,8 @@
     function clearTasks() {
       tasks = [];  // Array khali kar dein
       document.getElementById("taskList").innerHTML = "";  // List saaf karein
+      document.getElementById("taskCount").textContent = "Total Tasks: 0";  // Count reset
+    }
+  </script>
+</body>
+</html>
