@@ -10,25 +10,34 @@
       margin: 20px;
     }
     input{
-      background-color: magenta;
+      background-color: lightgreen;
       padding: 10px;
       color: blue;
       border-radius: 10px;
-      border: 5px groove gray;
+      border: 5px groove red;
     }
     button{
       background-color: lightgreen;
       padding: 10px;
       color: blue;
-      border-radius: 20px ;
+      border-radius: 10px ;
       margin: 10px;
+      border: 5px groove red;
+      box-shadow: 5px 5px 5px gray inset 0.6;
+    }
+    li{
+      list-style: none;
+    }
+    h1{
+      
+      border: 3px solid gold;
     }
   </style>
 </head>
 <body>
-  <h2>To-Do List</h2>
+  <h1>To-Do List</h1>
 
-  <input type="text" id="task" placeholder="Enter a task">
+  <input type="text" id="task" placeholder="Enter a task"><br>
   <button onclick="addTask()">Add Task</button>
   <button onclick="clearTasks()">Clear All</button>
 
@@ -36,6 +45,18 @@
   <p id="taskCount">Total Tasks: 0</p>
 
   <script>
+//         Task 2/ Title: To-Do List Manager
+
+// �� Description:
+// User ek task (kaam) likh kar &quot;Add Task&quot; button pe click karega. Har dafa:
+// 1. Input value validate hogi (khaali string allow nahi).
+// 2. Task ko ek array mein store kiya jayega.
+// 3. Neeche ek list mein sab tasks dikhaye jaayenge.
+// 4. Total tasks ka count show hoga.
+// 5. &quot;Clear All&quot; button se sab tasks delete ho jaayenge.
+//==============================================================****=====================================================================
+
+
     // Tasks store karne ke liye empty array
     let tasks = [];
 
